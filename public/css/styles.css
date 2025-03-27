@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'primary-font';
-    src: url('../assets/fonts/DoritosHeadline_BlkIt.ttf');
+    src: url('../assets/fonts/SofiaSans-Black.ttf');
 }
 
 * {
@@ -10,7 +10,7 @@
 }
 
 html, body {
-    font-family: 'primary-font', sans-serif;
+    font-family: sans-serif;
     height: 100%;
 }
 

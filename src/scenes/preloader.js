@@ -16,14 +16,18 @@ export class Preloader extends Phaser.Scene {
 
         /* ELEMS */
         this.load.image('background', './elems/bg.png');
+        this.load.image('floor', './elems/floor.png');
         this.load.image('score-bg', './elems/score_bg.png');
         this.load.image('lives-bg', './elems/lives_bg.png');
         this.load.image('time-bg', './elems/time_bg.png');
+        this.load.image('logo', './elems/logo.png');
         
         /* BUTTONS */
         this.load.image('left-btn', './botones/left.png');
         this.load.image('right-btn', './botones/right.png');
         this.load.image('jump-btn', './botones/jump.png');
+        this.load.image('play', './botones/play.png');
+
 
         /* TUTORIAL */
         this.load.image('background_tutorial', './tutorial/bg_tutorial.jpg');
@@ -42,7 +46,6 @@ export class Preloader extends Phaser.Scene {
 
     create ()
     {
-        // this.scene.start('Game');
-        this.scene.start('Tutorial');
+        this.scene.start('Menu');
     } 
 }

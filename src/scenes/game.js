@@ -160,8 +160,10 @@ export class Game extends Phaser.Scene {
         height = this.game.config.height;
         
         this.add.image(0, -180, 'background').setOrigin(0);
+        this.add.image(-250, (height - 180), 'floor').setScale(.8).setOrigin(0);
+
         floor = this.physics.add.staticGroup();
-        floor.create(15, (height - 190), '').setSize(width, 20).setOffset(0, 20).setAlpha(0.001);
+        floor.create(15, (height - 160), '').setSize(width, 20).setOffset(0, 20).setAlpha(0.001);
 
         leftBtn = this.add.image(110, height - 120, 'left-btn').setInteractive().setDepth(1);
         rightBtn = this.add.image(leftBtn.x + 200, leftBtn.y, 'right-btn').setInteractive().setDepth(1);
@@ -189,7 +191,7 @@ export class Game extends Phaser.Scene {
     }
 
     hitElem(player, elem){
-        if (elem.texture.key === 'dorito' && !loose){
+        if (elem.texture.key === 'pollo' && !loose){
             player.score += 5;
             scoreText.setText(player.score+" PTS");
         }else if(!loose) {
@@ -223,19 +225,17 @@ export class Game extends Phaser.Scene {
         clearInterval(timeInterval);
         clearInterval(elemsInterval);
         mContext.deleteElems();
-        let bg = this.add.image(0, 0, 'background_tutorial').setOrigin(0, 0).setDepth(1);
-        let title = this.add.image(width/2, (height/4), 'title-score').setDepth(1);
+        let bg = this.add.image(0, 0, 'background').setOrigin(0, 0).setDepth(1);
+        let title = this.add.image(width/2, (height/4), 'logo').setDepth(1);
         const fxShadow = title.preFX.addShadow(0, 0, 0.006, 2, 0x333333, 10);
 
-        let scoreText1 = "LLEVAS \n ";
+        let scoreText1 = "GANASTE \n ";
         let scoreText2 = "\n PUNTOS";
 
         const screenCenterX = this.cameras.main.worldView.x + this.cameras.main.width / 2;
-        let score1 = this.add.text((width/2), (height/2), scoreText1, {font: '80px primary-font', fill: '#fff', align: "center"}).setOrigin(0.5).setDepth(1);
-        let score = this.add.text((width/2), ((height/2) + 150),  player.score, {font: '400px primary-font', fill: '#fff', align: "center"}).setOrigin(0.5).setDepth(1);
-        let score2 = this.add.text(((width/2) - 30), ((score.y) + 180), scoreText2, {font: '80px primary-font', fill: '#00cb9b', align: "center"}).setOrigin(0.5).setDepth(1);
-
-        let footer = this.add.image(width/2, (height - 100), 'title-footer').setDepth(1);
+        let score1 = this.add.text((width/2), (height/2) + 50, scoreText1, {font: '80px primary-font', fill: '#000', align: "center"}).setOrigin(0.5).setDepth(1);
+        let score = this.add.text((width/2), ((height/2) + 200),  player.score, {font: '400px primary-font', fill: '#000', align: "center"}).setOrigin(0.5).setDepth(1);
+        let score2 = this.add.text(((width/2)), ((score.y) + 170), scoreText2, {font: '80px primary-font', fill: '#e1161d', align: "center"}).setOrigin(0.5).setDepth(1);
 
         this.add.tween({
             targets: title,
@@ -253,6 +253,8 @@ export class Game extends Phaser.Scene {
             yoyo: true,
             repeat: 1
         });
+
+        setTimeout(() => {location.reload();}, 5000);
     }
 
     deleteElems(){
