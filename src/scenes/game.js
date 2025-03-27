@@ -159,8 +159,7 @@ export class Game extends Phaser.Scene {
         width = this.game.config.width;
         height = this.game.config.height;
         
-        this.add.image(0, -180, 'background').setOrigin(0);
-        this.add.image(-250, (height - 180), 'floor').setScale(.8).setOrigin(0);
+        this.add.image(0, 0, 'background_2').setOrigin(0);
 
         floor = this.physics.add.staticGroup();
         floor.create(15, (height - 160), '').setSize(width, 20).setOffset(0, 20).setAlpha(0.001);

@@ -16,6 +16,7 @@ export class Preloader extends Phaser.Scene {
 
         /* ELEMS */
         this.load.image('background', './elems/bg.png');
+        this.load.image('background_2', './elems/bg_2.png');
         this.load.image('floor', './elems/floor.png');
         this.load.image('score-bg', './elems/score_bg.png');
         this.load.image('lives-bg', './elems/lives_bg.png');
