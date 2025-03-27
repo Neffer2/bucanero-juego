@@ -162,7 +162,7 @@ export class Game extends Phaser.Scene {
         this.add.image(0, 0, 'background_2').setOrigin(0);
 
         floor = this.physics.add.staticGroup();
-        floor.create(15, (height - 160), '').setSize(width, 20).setOffset(0, 20).setAlpha(0.001);
+        floor.create(15, (height - 190), '').setSize(width, 20).setOffset(0, 20).setAlpha(0.001);
 
         leftBtn = this.add.image(110, height - 120, 'left-btn').setInteractive().setDepth(1);
         rightBtn = this.add.image(leftBtn.x + 200, leftBtn.y, 'right-btn').setInteractive().setDepth(1);
